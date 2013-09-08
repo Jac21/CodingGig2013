@@ -1,0 +1,285 @@
+<!Doctype html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+	<meta name="viewport" content="width=devide-width initial-scale=1.0">
+
+	<title>Coding Gig 2013</title>
+
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+	<script src="./CodingGig Sample_files/d3.v3.min.js"></script><style type="text/css"></style>
+
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+	<link href="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+	<!--[if IE 6]>
+
+    		<link href="ie6.min.css" rel="stylesheet">
+
+    		<![endif]-->
+
+    <style type="text/css">
+
+	h1 {font-family:Tangerine;}    
+
+    #middle{
+
+    	height:900;
+
+    }
+
+    </style>
+
+</head>
+
+<body background="">
+
+	 <!-- Navbar
+
+      ================================================== -->
+
+      <div class="bs-docs-section clearfix">
+
+        <div class="row">
+
+          <div class="col-lg-12">
+
+            <div class="navbar navbar-inverse">
+
+                <div class="container">
+
+                  <div class="navbar-header" class="active">
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+
+                      <span class="icon-bar"></span>
+
+                      <span class="icon-bar"></span>
+
+                      <span class="icon-bar"></span>
+
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">Our Big Data</a>
+
+                  </div>
+
+                  <div class="navbar-collapse collapse navbar-inverse-collapse">
+
+                    <ul class="nav navbar-nav">
+
+                      <li><a href="map.html">Map</a></li>
+                      <li><a href="compare.html">Compare</a></li>
+
+                        </ul>
+
+                      </li>
+
+                    </ul>
+
+					<!--
+
+                    <form class="navbar-form navbar-left">
+
+                      <input type="text" class="form-control col-lg-8" placeholder="Search">
+
+                    </form>
+
+					-->
+
+					
+					
+
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="https://github.com/Jac21/CodingGig2013"target="_blank">Link</a></li>
+                    </ul>
+                  </div><!-- /.nav-collapse -->
+                </div><!-- /.container -->
+              </div><!-- /.navbar -->
+            </div><!-- /example -->
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    		<div="container-fluid">
+
+    		<div class="row-fluid">
+
+    			<div class="offset3 span6 text-center">
+
+    				<div class="hero-unit" id="middle">
+
+    					<h1>Coding Gig 2013</h1>
+
+    					<p>Aggressive terms by region in our sample tweets</p> 
+
+    					<p style="padding-top:20px;">The culprit of the Boston Bombings tweeted messages hinting he was going to attempt something drastic the days following up to the event. Our team had the idea that one could track potential, or currently occuring crimes by tracking keywords in people's Twitter tweets. We implemented this idea using the tweets' latitude and longitude, compared it to a map of crime density in the U.S., and analyzed the data to find out if there was a correlation between the threatening keywords and areas with higher crime rates.</p>
+
+    					
+
+    					<div class="text-center"> 
+
+    						<div id="viz"><svg width="250" height="250"><g transform="translate(125,125)" style="padding: 20px; "><g class="arc"><path d="M5.510728592200698e-15,-90A90,90 0 0,1 80.93809171540973,-39.35765884129699L0,0Z" style="fill: #CC0000;"></path><text  transform="translate(23.868940865388414,-38.14804925503519)" dy=".35em" style="text-anchor: middle;">Kill</text></g><g class="arc"><path d="M80.93809171540973,-39.35765884129699A90,90 0 0,1 32.77445177275402,83.82025597071045L0,0Z" style="fill: #FF1919;"></path><text transform="translate(41.91012798535523,10.387225886376992)" dy=".35em" style="text-anchor: middle;">Death</text></g><g class="arc"><path d="M32.77445177275402,83.82025597071045A90,90 0 0,1 -49.752005882507376,74.99825271742637L0,0Z" style="fill: #FF6600;"></path><text transform="translate(-5.783206854131438,48.74506600945617)" dy=".35em" style="text-anchor: middle;">Bomb</text></g><g class="arc"><path d="M-49.752005882507376,74.99825271742637A90,90 0 0,1 -77.53986732544257,-45.68992203049557L0,0Z" style="fill: #F7FE2E;"></path><text transform="translate(-50.85263426293065,10.096854371616967)" dy=".35em" style="text-anchor: middle;">Shooting</text></g><g class="arc"><path d="M-77.53986732544257,-45.68992203049557A90,90 0 0,1 -1.6532185776602093e-14,-90L0,0Z" style="fill: #2E2EFE;"></path><text transform="translate(-22.3268532748555,-39.0705979330119)" dy=".35em" style="text-anchor: middle;">Stab</text></g></g></svg></div>
+
+    						<!-- d3 provides methods to get data from various formats and use it eventually -->
+
+    						<!-- https://github.com/mbostock/d3/wiki/Requests#convenience-methods -->
+
+    					</div>
+
+    				</div>
+
+    			</div>
+
+    		</div>
+
+    	</div>
+
+    	<script type="text/javascript">
+
+    	var width = 500, height = 500, radius = 200;
+
+
+
+			//scales are functions that map input domain to output range.
+
+			//when input goes out of range, the values are cycled.
+
+			var color = d3.scale.ordinal()
+
+			.range(["#CC0000", "#FF3300", "#000099", "#FFCC00", "#a05d56", "#d0743c", "#ff8c00"]);
+
+
+
+      //svg level physical or geometrical element (this is an arc shape generator)
+
+      var arc = d3.svg.arc()
+
+      .outerRadius(radius+30)
+
+      .innerRadius(0);
+
+
+
+			//svg level logical element, used for calculating start and end angles for arcs.
+
+			var pie = d3.layout.pie()
+
+			.sort(null)
+
+			.value(function(d) {return d.val;});
+
+
+
+      //append parent svg to the div
+
+      var svg = d3.select("#viz").append("svg")
+
+      .attr("width", width)
+
+      .attr("height", height)
+
+      .append("g")
+
+      .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+
+      .style("padding", "20px");
+
+
+
+      d3.json("data/exprs.json", function(error, parsedJson) {
+
+				//alert(parsedJson);
+
+				//data should always finally resolve to an array of things which one can iterate over
+
+				//create a new g element for every data point we see in the array.
+
+				//(g is a container element for grouping related graphics elements)
+
+				var g = svg.selectAll(".arc")
+
+				.data(pie(parsedJson))
+
+				.enter().append("g")
+
+				.attr("class", "arc");
+
+
+
+			  //The path element represents the outline of a shape which can be filled, stroked, 
+
+			  //used as a clipping path, or any combination of the three.
+
+			  //in this case outline of an arc
+
+			  g.append("path")
+
+			  .attr("d", arc)
+
+			  .style("fill", function(d) { return color(d.data.pic); });
+
+
+
+        //defines a graphics element consisting of text
+
+        g.append("text")
+
+        .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+
+        .attr("dy", ".35em")
+
+        .style("text-anchor", "middle")
+
+        .text(function(d) { return d.data.pic; });
+
+
+
+    });
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+	
+
+	
+
+</body>
+
+
+
+
+
+
+
+</html>
